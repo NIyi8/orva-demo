@@ -1,46 +1,32 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Orva - Your AI Companion</title>
-  <link rel="stylesheet" href="styles.css">
-  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Orva – Mental Wellness Demo</title>
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
   <div class="container">
-    <header>
-      <h1>Welcome to Orva - Your Emotional Support AI</h1>
-    </header>
-    <main>
-      <div class="mood-section">
-        <h2>🌈 How are you feeling today?</h2>
-        <div id="mood-buttons">
-          <button onclick="logMood('happy')">Happy</button>
-          <button onclick="logMood('sad')">Sad</button>
-          <button onclick="logMood('anxious')">Anxious</button>
-          <button onclick="logMood('angry')">Angry</button>
-          <button onclick="logMood('tired')">Tired</button>
-          <button onclick="logMood('excited')">Excited</button>
-        </div>
-        <h2>📊 Mood Tracker</h2>
-        <canvas id="moodChart" width="400" height="200"></canvas>
-      </div>
+    <h1>Welcome to Orva</h1>
+    
+    <h2>Emotional Check-In</h2>
+    <div class="mood-buttons">
+      <button onclick="logMood('Happy')">😊 Happy</button>
+      <button onclick="logMood('Sad')">😢 Sad</button>
+      <button onclick="logMood('Anxious')">😟 Anxious</button>
+      <button onclick="logMood('Excited')">😄 Excited</button>
+    </div>
 
-      <div class="journal-section">
-        <h2>📝 Your Journal</h2>
-        <textarea id="journal-entry" placeholder="Write something here..."></textarea>
-        <button onclick="saveJournal()">Save Journal</button>
-        <button onclick="clearJournal()">Clear Journal</button>
-        <h3>Your Saved Journal Entries:</h3>
-        <ul id="journal-list"></ul>
-      </div>
+    <h2>Journal</h2>
+    <textarea id="journalInput" placeholder="Write your thoughts..."></textarea>
+    <button onclick="saveJournal()">Save Journal</button>
+    <div id="journalEntries"></div>
 
-      <div class="orva-response">
-        <h2>Orva's Response:</h2>
-        <p id="orva-text">I'm here to listen. Tell me how you're feeling, and I'll support you!</p>
-      </div>
-    </main>
+    <h2>Chat with Orva</h2>
+    <div id="chatBox"></div>
+    <input type="text" id="userInput" placeholder="Talk to Orva..." />
+    <button onclick="sendMessage()">Send</button>
   </div>
 
   <script src="script.js"></script>
