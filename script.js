@@ -15,7 +15,14 @@ function getEmotionalResponse(mood) {
 function handleMood(mood) {
   const response = getEmotionalResponse(mood);
   document.getElementById("ai-response").innerText = response;
+  speak(response);  // Make Orva speak
   saveMoodHistory(mood);
+}
+
+// Speech synthesis (Make Orva speak)
+function speak(text) {
+  const utterance = new SpeechSynthesisUtterance(text);
+  window.speechSynthesis.speak(utterance);
 }
 
 // Voice Journal
@@ -35,6 +42,7 @@ async function startRecording() {
     const audioBlob = new Blob(audioChunks);
     const audioUrl = URL.createObjectURL(audioBlob);
     document.getElementById("audioPlayback").src = audioUrl;
+    speak("Your recording has been saved.");
   };
 
   mediaRecorder.start();
@@ -85,72 +93,31 @@ function displayJournal() {
   });
 }
 
-// Delete journal entry
+// Delete Journal Entry
 function deleteJournal(index) {
   const journalHistory = JSON.parse(localStorage.getItem('journalHistory')) || [];
   journalHistory.splice(index, 1);
   localStorage.setItem('journalHistory', JSON.stringify(journalHistory));
-  displayJournal();
+  displayJournal(); // Re-display the journal list
 }
 
-// Voice Chat
-let recognition;
-
-function startVoiceChat() {
-  recognition = new (window.SpeechRecognition || window.webkitSpeechRecognition)();
-  recognition.lang = 'en-US';
-  recognition.start();
-
-  recognition.onresult = function(event) {
-    const speech = event.results[0][0].transcript;
-    document.getElementById('ai-response').innerText = "You said: " + speech;
-    respondToUser(speech);
-  };
-
-  recognition.onerror = function(event) {
-    alert("Sorry, I couldn't understand you. Please try again.");
-  };
-}
-
-// Respond to voice input
-function respondToUser(speech) {
-  let response;
-  if (speech.includes("hello") || speech.includes("hi")) {
-    response = "Hello! How are you feeling today? 😊";
-  } else if (speech.includes("sad")) {
-    response = "I’m sorry you’re feeling sad. Let’s talk about it!";
-  } else if (speech.includes("happy")) {
-    response = "That’s amazing! Keep up the positive vibes!";
-  } else {
-    response = "I’m here for you, tell me more!";
-  }
-
-  const utterance = new SpeechSynthesisUtterance(response);
-  window.speechSynthesis.speak(utterance);
-}
-
-// Handle text input (conversations)
+// Text Chat with Orva
 function handleTextInput() {
-  const userInput = document.getElementById('textInput').value;
-  const response = respondToUserText(userInput);
+  const input = document.getElementById('textInput').value;
+  const response = generateTextResponse(input);
   document.getElementById('ai-response').innerText = response;
-  document.getElementById('textInput').value = ""; // Clear input
+  speak(response);
 }
 
-// Text-based response to input
-function respondToUserText(input) {
-  let response;
-  if (input.includes("hello") || input.includes("hi")) {
-    response = "Hello there! How can I assist you today?";
-  } else if (input.includes("sad")) {
-    response = "I’m really sorry to hear that. Do you want to talk more about it?";
-  } else if (input.includes("happy")) {
-    response = "That’s fantastic! Keep smiling!";
+// Basic Text Response Logic (more can be added for AI responses)
+function generateTextResponse(input) {
+  if (input.includes("hello")) {
+    return "Hi there! How can I help you today?";
+  } else if (input.includes("how are you")) {
+    return "I'm doing well, thank you for asking! How are you feeling?";
   } else {
-    response = "I’m here for you. Tell me how you're feeling!";
+    return "I’m here for you. Tell me how you're feeling!";
   }
-  return response;
 }
 
-// Initial display of saved journals
 displayJournal();
