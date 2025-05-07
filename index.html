@@ -30,6 +30,16 @@
     <h2>📝 Journal</h2>
     <textarea id="journalEntry" rows="4" cols="50" placeholder="Write your thoughts..."></textarea>
     <button onclick="saveJournal()">Save Journal</button>
+
+    <h2>📜 Saved Journals</h2>
+    <div id="savedJournals"></div>
+
+    <h2>🎤 Voice Chat with Orva</h2>
+    <button onclick="startVoiceChat()">Start Voice Chat</button>
+
+    <h2>💬 Talk to Orva</h2>
+    <input type="text" id="textInput" placeholder="Type your message here..." />
+    <button onclick="handleTextInput()">Send</button>
   </div>
 
   <script src="script.js"></script>
