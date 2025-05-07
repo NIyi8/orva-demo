@@ -15,6 +15,7 @@ function getEmotionalResponse(mood) {
 function handleMood(mood) {
   const response = getEmotionalResponse(mood);
   document.getElementById("ai-response").innerText = response;
+  saveMoodHistory(mood);
 }
 
 // Voice Journal
@@ -43,4 +44,22 @@ async function startRecording() {
 function stopRecording() {
   mediaRecorder.stop();
   alert("Recording stopped. Playback below. 🎶");
+}
+
+// Save mood history
+function saveMoodHistory(mood) {
+  const moodHistory = JSON.parse(localStorage.getItem('moodHistory')) || [];
+  moodHistory.push({ mood: mood, date: new Date() });
+  localStorage.setItem('moodHistory', JSON.stringify(moodHistory));
+}
+
+// Journal Saving Feature
+function saveJournal() {
+  const journalText = document.getElementById('journalEntry').value;
+  if (journalText) {
+    alert("Your journal entry has been saved!");
+    document.getElementById('journalEntry').value = ""; // Clear input
+  } else {
+    alert("Please write something before saving.");
+  }
 }
