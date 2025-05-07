@@ -23,7 +23,7 @@ function handleMood(mood) {
 function speak(text) {
   const utterance = new SpeechSynthesisUtterance(text);
   const voices = speechSynthesis.getVoices();
-  
+
   // Try to find a more natural, feminine voice
   const voice = voices.find(v => v.name.toLowerCase().includes("female"));
   if (voice) {
@@ -31,8 +31,8 @@ function speak(text) {
   }
 
   // Set more emotional tone
-  utterance.pitch = 1.2;  // Slightly higher pitch
-  utterance.rate = 1.1;   // Slightly slower speed for a more soothing voice
+  utterance.pitch = 1.3;  // Slightly higher pitch for warmth
+  utterance.rate = 0.9;   // Slightly slower speed for a more soothing voice
 
   window.speechSynthesis.speak(utterance);
 }
