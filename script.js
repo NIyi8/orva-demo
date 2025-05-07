@@ -22,6 +22,18 @@ function handleMood(mood) {
 // Speech synthesis (Make Orva speak)
 function speak(text) {
   const utterance = new SpeechSynthesisUtterance(text);
+  const voices = speechSynthesis.getVoices();
+  
+  // Try to find a more natural, feminine voice
+  const voice = voices.find(v => v.name.toLowerCase().includes("female"));
+  if (voice) {
+    utterance.voice = voice;
+  }
+
+  // Set more emotional tone
+  utterance.pitch = 1.2;  // Slightly higher pitch
+  utterance.rate = 1.1;   // Slightly slower speed for a more soothing voice
+
   window.speechSynthesis.speak(utterance);
 }
 
@@ -82,10 +94,9 @@ function displayJournal() {
   const journalList = document.getElementById('savedJournals');
   journalList.innerHTML = "";
   journalHistory.forEach((entry, index) => {
-    const div = document.createElement("div");
-    div.classList.add("journal-entry");
+    const div = document.createElement('div');
+    div.classList.add('journal-entry');
     div.innerHTML = `
-      <p><strong>${entry.date}</strong></p>
       <p>${entry.entry}</p>
       <button onclick="deleteJournal(${index})">Delete</button>
     `;
@@ -93,12 +104,12 @@ function displayJournal() {
   });
 }
 
-// Delete Journal Entry
+// Delete journal entry
 function deleteJournal(index) {
   const journalHistory = JSON.parse(localStorage.getItem('journalHistory')) || [];
   journalHistory.splice(index, 1);
   localStorage.setItem('journalHistory', JSON.stringify(journalHistory));
-  displayJournal(); // Re-display the journal list
+  displayJournal(); // Re-display journal after deletion
 }
 
 // Text Chat with Orva
@@ -109,14 +120,14 @@ function handleTextInput() {
   speak(response);
 }
 
-// Basic Text Response Logic (more can be added for AI responses)
+// Basic Text Response Logic
 function generateTextResponse(input) {
   if (input.includes("hello")) {
-    return "Hi there! How can I help you today?";
+    return "Hi there! How can I help you today? 😊";
   } else if (input.includes("how are you")) {
-    return "I'm doing well, thank you for asking! How are you feeling?";
+    return "I'm doing great, thank you! How are you? 💖";
   } else {
-    return "I’m here for you. Tell me how you're feeling!";
+    return "I’m here for you. Tell me how you're feeling, and I’ll help! 💫";
   }
 }
 
