@@ -1,8 +1,8 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Orva – Mental Health Demo</title>
   <link rel="stylesheet" href="styles.css">
 </head>
@@ -12,12 +12,12 @@
     <p>How are you feeling today?</p>
 
     <div class="mood-buttons">
-      <button onclick="handleMood('happy')">😊 Happy</button>
-      <button onclick="handleMood('sad')">😢 Sad</button>
-      <button onclick="handleMood('anxious')">😰 Anxious</button>
-      <button onclick="handleMood('angry')">😡 Angry</button>
-      <button onclick="handleMood('tired')">😴 Tired</button>
-      <button onclick="handleMood('excited')">😃 Excited</button>
+      <button class="positive" onclick="handleMood('happy')">😊 Happy</button>
+      <button class="sad" onclick="handleMood('sad')">😢 Sad</button>
+      <button class="anxious" onclick="handleMood('anxious')">😰 Anxious</button>
+      <button class="angry" onclick="handleMood('angry')">😡 Angry</button>
+      <button class="tired" onclick="handleMood('tired')">😴 Tired</button>
+      <button class="excited" onclick="handleMood('excited')">😃 Excited</button>
     </div>
 
     <div id="ai-response" class="response-box"></div>
@@ -26,6 +26,10 @@
     <button onclick="startRecording()">Start Recording</button>
     <button onclick="stopRecording()">Stop & Save</button>
     <audio id="audioPlayback" controls></audio>
+
+    <h2>📝 Journal</h2>
+    <textarea id="journalEntry" rows="4" cols="50" placeholder="Write your thoughts..."></textarea>
+    <button onclick="saveJournal()">Save Journal</button>
   </div>
 
   <script src="script.js"></script>
