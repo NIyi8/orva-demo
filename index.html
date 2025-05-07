@@ -1,1 +1,33 @@
 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Orva – Mental Health Demo</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="container">
+    <h1>🧠 Welcome to Orva</h1>
+    <p>How are you feeling today?</p>
+
+    <div class="mood-buttons">
+      <button onclick="handleMood('happy')">😊 Happy</button>
+      <button onclick="handleMood('sad')">😢 Sad</button>
+      <button onclick="handleMood('anxious')">😰 Anxious</button>
+      <button onclick="handleMood('angry')">😡 Angry</button>
+      <button onclick="handleMood('tired')">😴 Tired</button>
+      <button onclick="handleMood('excited')">😃 Excited</button>
+    </div>
+
+    <div id="ai-response" class="response-box"></div>
+
+    <h2>🎤 Voice Journal</h2>
+    <button onclick="startRecording()">Start Recording</button>
+    <button onclick="stopRecording()">Stop & Save</button>
+    <audio id="audioPlayback" controls></audio>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
