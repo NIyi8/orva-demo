@@ -1,120 +1,74 @@
-/* General Styling */
 body {
-  font-family: 'Arial', sans-serif;
-  background: #f0f4ff;
+  font-family: Arial, sans-serif;
+  background-color: #f1f1f1;
+  color: #333;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
   margin: 0;
-  padding: 20px;
 }
 
 .container {
+  background-color: white;
+  border-radius: 10px;
+  padding: 20px;
+  width: 90%;
   max-width: 600px;
-  margin: auto;
-  background: #ffffff;
-  padding: 30px;
-  border-radius: 12px;
-  box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-  text-align: center;
 }
 
-/* Mood Buttons */
-.mood-buttons button {
+button {
+  padding: 10px;
   margin: 10px;
-  padding: 15px 30px;
-  font-size: 16px;
-  font-weight: bold;
-  border-radius: 25px;
   border: none;
-  cursor: pointer;
-  transition: background-color 0.3s ease, transform 0.2s ease;
-}
-
-.mood-buttons button:hover {
-  transform: scale(1.1);
-}
-
-.mood-buttons button:active {
-  background-color: #eee;
-}
-
-.mood-buttons button.positive {
-  background-color: #6cbd47;
+  border-radius: 5px;
+  background-color: #007bff;
   color: white;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #0056b3;
+}
+
+.mood-buttons button {
+  background-color: #28a745;
 }
 
 .mood-buttons button.sad {
-  background-color: #e74c3c;
-  color: white;
+  background-color: #dc3545;
 }
 
 .mood-buttons button.anxious {
-  background-color: #f39c12;
-  color: white;
+  background-color: #ffc107;
 }
 
 .mood-buttons button.angry {
-  background-color: #c0392b;
-  color: white;
+  background-color: #e83e8c;
 }
 
 .mood-buttons button.tired {
-  background-color: #95a5a6;
-  color: white;
+  background-color: #6c757d;
 }
 
 .mood-buttons button.excited {
-  background-color: #f39c12;
-  color: white;
+  background-color: #17a2b8;
 }
 
-/* Response Box */
-.response-box {
-  margin-top: 20px;
-  padding: 15px;
-  background: #e1f0fe;
-  border-radius: 10px;
-  font-size: 1.1rem;
-  font-style: italic;
-  color: #34495e;
-}
-
-h2 {
-  font-size: 24px;
-  margin-top: 40px;
-}
-
-/* Audio Controls */
-button {
-  padding: 10px 20px;
-  font-size: 18px;
-  border-radius: 10px;
-  cursor: pointer;
-  margin-top: 10px;
-}
-
-button:active {
-  background-color: #b0c4de;
-}
-
-/* Journal Styling */
-.journal-entry {
-  margin-top: 15px;
+textarea {
+  width: 100%;
   padding: 10px;
-  background: #f7f9fc;
-  border-radius: 8px;
-  border: 1px solid #ddd;
-  text-align: left;
-}
-
-.journal-entry button {
-  margin-top: 5px;
-  padding: 5px 10px;
-  background: #e74c3c;
-  color: white;
-  border: none;
   border-radius: 5px;
-  cursor: pointer;
+  border: 1px solid #ccc;
 }
 
-.journal-entry button:hover {
-  background: #c0392b;
+#savedJournals {
+  margin-top: 20px;
+}
+
+.journal-entry {
+  background-color: #f8f9fa;
+  padding: 10px;
+  margin-bottom: 10px;
+  border-radius: 5px;
 }
