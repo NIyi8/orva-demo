@@ -1,74 +1,55 @@
 body {
   font-family: Arial, sans-serif;
-  background-color: #f1f1f1;
+  background-color: #f4f4f4;
   color: #333;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100vh;
-  margin: 0;
 }
 
 .container {
-  background-color: white;
-  border-radius: 10px;
+  width: 80%;
+  margin: 0 auto;
   padding: 20px;
-  width: 90%;
-  max-width: 600px;
+}
+
+header {
+  text-align: center;
 }
 
 button {
-  padding: 10px;
+  padding: 10px 15px;
   margin: 10px;
-  border: none;
-  border-radius: 5px;
-  background-color: #007bff;
+  background-color: #4CAF50;
   color: white;
+  border: none;
   cursor: pointer;
 }
 
 button:hover {
-  background-color: #0056b3;
-}
-
-.mood-buttons button {
-  background-color: #28a745;
-}
-
-.mood-buttons button.sad {
-  background-color: #dc3545;
-}
-
-.mood-buttons button.anxious {
-  background-color: #ffc107;
-}
-
-.mood-buttons button.angry {
-  background-color: #e83e8c;
-}
-
-.mood-buttons button.tired {
-  background-color: #6c757d;
-}
-
-.mood-buttons button.excited {
-  background-color: #17a2b8;
+  background-color: #45a049;
 }
 
 textarea {
   width: 100%;
+  height: 150px;
   padding: 10px;
-  border-radius: 5px;
-  border: 1px solid #ccc;
+  margin: 10px 0;
 }
 
-#savedJournals {
+ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+.mood-section {
+  margin-bottom: 30px;
+}
+
+.journal-section {
+  margin-bottom: 30px;
+}
+
+.orva-response {
+  background-color: #e0f7fa;
+  padding: 15px;
+  border-radius: 5px;
   margin-top: 20px;
-}
-
-.journal-entry {
-  background-color: #f8f9fa;
-  padding: 10px;
-  margin-bottom: 10px;
-  border-radius: 5px;
 }
