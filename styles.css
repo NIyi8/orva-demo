@@ -94,3 +94,27 @@ button {
 button:active {
   background-color: #b0c4de;
 }
+
+/* Journal Styling */
+.journal-entry {
+  margin-top: 15px;
+  padding: 10px;
+  background: #f7f9fc;
+  border-radius: 8px;
+  border: 1px solid #ddd;
+  text-align: left;
+}
+
+.journal-entry button {
+  margin-top: 5px;
+  padding: 5px 10px;
+  background: #e74c3c;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.journal-entry button:hover {
+  background: #c0392b;
+}
