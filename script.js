@@ -1,16 +1,17 @@
-// AI Emotional Response
+// AI Emotional Response with Tone
 function getEmotionalResponse(mood) {
   const responses = {
-    happy: "That's wonderful to hear! 😊 Keep shining.",
-    sad: "I'm here for you. Want to talk about it or try a breathing exercise? 💙",
-    anxious: "Take a deep breath. You're not alone. 🌿",
-    angry: "It’s okay to feel this way. Let’s find a calm moment together. 🔥",
-    tired: "Rest is important. Let’s slow things down for a bit. 😴",
-    excited: "Woo! Love the energy. Want to capture this moment? 🚀"
+    happy: "That's wonderful to hear! 😊 Keep shining and spreading that positive energy!",
+    sad: "I'm really sorry you're feeling that way. It’s okay to feel sad sometimes. Want to talk more? 💙",
+    anxious: "Breathe deeply, you’ve got this. Let's work through the anxiety together, step by step. 🌱",
+    angry: "It's perfectly okay to feel angry. Let's try to calm down and focus on something that soothes you. 🔥",
+    tired: "Rest is essential. Take your time. We’ll be here when you’re ready to continue. 😴",
+    excited: "Woo! I can feel your excitement. This is going to be amazing! Keep that energy flowing! 🚀"
   };
-  return responses[mood] || "I'm here for you no matter what. ❤️";
+  return responses[mood] || "I'm here for you, no matter how you feel. ❤️";
 }
 
+// Mood Button Action
 function handleMood(mood) {
   const response = getEmotionalResponse(mood);
   document.getElementById("ai-response").innerText = response;
@@ -36,11 +37,10 @@ async function startRecording() {
   };
 
   mediaRecorder.start();
-  alert("Recording started!");
+  alert("Recording started! 🎤");
 }
 
 function stopRecording() {
   mediaRecorder.stop();
-  alert("Recording stopped. Playback below.");
+  alert("Recording stopped. Playback below. 🎶");
 }
-
