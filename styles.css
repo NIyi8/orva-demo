@@ -1,24 +1,56 @@
+/* Body and General Styles */
 body {
-  font-family: Arial, sans-serif;
-  background: #f6f8fc;
+  font-family: 'Poppins', sans-serif;
+  background: linear-gradient(135deg, #6a5acd, #b0e0e6); /* Soft gradient background */
   color: #333;
   padding: 20px;
+  margin: 0;
 }
 
 .container {
   max-width: 700px;
   margin: auto;
-  background: white;
   padding: 20px;
+  background: white;
   border-radius: 12px;
-  box-shadow: 0 0 15px rgba(0,0,0,0.1);
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
 }
 
 h1, h2 {
+  color: #fff;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+form input {
+  padding: 10px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+}
+
+form button {
+  padding: 10px;
+  background-color: #5a67d8;
+  color: white;
+  border-radius: 6px;
+  border: none;
+  cursor: pointer;
+}
+
+form button:hover {
+  background-color: #4c51bf;
+}
+
+form a {
+  text-align: center;
   color: #5a67d8;
 }
 
-.mood-buttons button, button {
+.mood-buttons button {
   margin: 5px;
   padding: 10px 15px;
   border: none;
@@ -47,6 +79,10 @@ textarea {
   border-radius: 6px;
 }
 
-#journalEntries {
-  margin-top: 10px;
+a {
+  color: #5a67d8;
+}
+
+a:hover {
+  text-decoration: underline;
 }
